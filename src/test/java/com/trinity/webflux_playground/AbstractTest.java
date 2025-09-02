@@ -6,8 +6,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(properties = "section=sec02")
 class AbstractTest {
 
-	@Test
-	void contextLoads() {
-	}
-
 }
