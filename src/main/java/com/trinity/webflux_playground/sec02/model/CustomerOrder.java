@@ -12,9 +12,7 @@ import java.util.UUID;
 public class CustomerOrder {
     @Id
     private UUID orderId;
-//    @Column("customer_id")
-    private Integer customerid;
-//    @Column("product_id")
+    private Integer customerId;
     private Integer productId;
     private Integer amount;
     private LocalDateTime orderDate;
