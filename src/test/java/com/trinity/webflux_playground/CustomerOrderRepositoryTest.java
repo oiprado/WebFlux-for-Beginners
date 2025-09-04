@@ -3,11 +3,7 @@ package com.trinity.webflux_playground;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.trinity.webflux_playground.sec02.model.Customer;
-import com.trinity.webflux_playground.sec02.model.CustomerOrder;
-import com.trinity.webflux_playground.sec02.model.OrderDetails;
 import com.trinity.webflux_playground.sec02.repository.CustomerOrderRepository;
-import com.trinity.webflux_playground.sec02.repository.CustomerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

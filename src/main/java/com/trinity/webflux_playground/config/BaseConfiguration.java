@@ -1,5 +1,6 @@
 package com.trinity.webflux_playground.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,5 +28,11 @@ public class BaseConfiguration {
         logger.info("baseUrl: {}", baseUrl);
         return RestClient.builder().requestFactory(new JdkClientHttpRequestFactory()).baseUrl(baseUrl).build();
     }
+
+    public ObjectMapper mapper() {
+        logger.info("Object Mapper configured");
+        return new ObjectMapper();
+    }
+
 
 }

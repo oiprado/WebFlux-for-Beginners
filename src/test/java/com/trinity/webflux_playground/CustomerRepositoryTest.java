@@ -8,10 +8,7 @@ import com.trinity.webflux_playground.sec02.repository.CustomerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Sort;
 import reactor.test.StepVerifier;
 
 import static org.slf4j.LoggerFactory.getLogger;
