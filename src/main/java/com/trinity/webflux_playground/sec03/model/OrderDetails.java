@@ -1,0 +1,7 @@
+package com.trinity.webflux_playground.sec03.model;
+
+import java.time.Instant;
+import java.util.UUID;
+
+public record OrderDetails(UUID orderId, String customerName, String productName, Integer amount, Instant orderDate) {
+}
