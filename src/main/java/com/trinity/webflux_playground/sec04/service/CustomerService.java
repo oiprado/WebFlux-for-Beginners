@@ -1,7 +1,6 @@
-package com.trinity.webflux_playground.sec03.service;
+package com.trinity.webflux_playground.sec04.service;
 
-import com.trinity.webflux_playground.sec03.model.Customer;
-import com.trinity.webflux_playground.sec03.dto.CustomerDto;
+import com.trinity.webflux_playground.sec04.dto.CustomerDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import reactor.core.publisher.Flux;

@@ -1,6 +1,6 @@
-package com.trinity.webflux_playground.sec03.repository;
+package com.trinity.webflux_playground.sec04.repository;
 
-import com.trinity.webflux_playground.sec03.model.Customer;
+import com.trinity.webflux_playground.sec04.model.Customer;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.r2dbc.repository.Modifying;
 import org.springframework.data.r2dbc.repository.Query;

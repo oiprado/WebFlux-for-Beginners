@@ -8,11 +8,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
+import org.springframework.boot.test.context.SpringBootTest;
 import reactor.test.StepVerifier;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
 
+//@SpringBootTest(properties = "section=sec03")
 public class CustomerOrderRepositoryTest extends AbstractTest {
 
     private static final Logger logger = getLogger(CustomerOrderRepositoryTest.class);

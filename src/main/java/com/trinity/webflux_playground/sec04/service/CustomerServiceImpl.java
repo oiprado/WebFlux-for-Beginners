@@ -1,11 +1,9 @@
-package com.trinity.webflux_playground.sec03.service;
-
-import com.trinity.webflux_playground.sec03.model.Customer;
-import com.trinity.webflux_playground.sec03.dto.CustomerDto;
-import com.trinity.webflux_playground.sec03.repository.CustomerRepository;
+package com.trinity.webflux_playground.sec04.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.trinity.webflux_playground.sec04.dto.CustomerDto;
+import com.trinity.webflux_playground.sec04.model.Customer;
+import com.trinity.webflux_playground.sec04.repository.CustomerRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -17,10 +15,14 @@ import reactor.core.publisher.Mono;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    @Autowired
-    private CustomerRepository customerRepository;
-    @Autowired
-    private ObjectMapper mapper;
+    private final CustomerRepository customerRepository;
+
+    private final ObjectMapper mapper;
+
+    public CustomerServiceImpl(CustomerRepository customerRepository, ObjectMapper mapper) {
+        this.customerRepository = customerRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public Flux<CustomerDto> getAllCustomers() {

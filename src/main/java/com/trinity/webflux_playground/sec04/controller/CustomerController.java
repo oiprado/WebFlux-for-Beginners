@@ -1,8 +1,11 @@
-package com.trinity.webflux_playground.sec03.controller;
+package com.trinity.webflux_playground.sec04.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.trinity.webflux_playground.sec03.dto.CustomerDto;
-import com.trinity.webflux_playground.sec03.service.CustomerService;
+import com.trinity.webflux_playground.sec04.dto.CustomerDto;
+import com.trinity.webflux_playground.sec04.exceptions.ApplicationExceptions;
+import com.trinity.webflux_playground.sec04.service.CustomerService;
+import com.trinity.webflux_playground.sec04.validator.RequestValidator;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,13 +38,21 @@ public class CustomerController {
     public Mono<ResponseEntity<CustomerDto>> getCustomerById(@PathVariable Integer id) {
         return customerService.getCustomerById(id)
                 .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound().build());
+                .switchIfEmpty(ApplicationExceptions.customerNotFound(id));
     }
 
     @PostMapping
-    public Mono<CustomerDto> save(@RequestBody CustomerDto customerMono) {
+    public Mono<CustomerDto> save(@Valid @RequestBody CustomerDto customerMono) {
         return customerService.save(Mono.just(customerMono))
                 .map(customer -> mapper.convertValue(customer, CustomerDto.class));
+    }
+
+    @PostMapping("/mono")
+    public Mono<CustomerDto> saveMono(@RequestBody Mono<CustomerDto> customerMono) {
+
+        return customerMono
+                .transform(RequestValidator.validate())
+                .as(customerService::save);
     }
 
     @PutMapping("{id}")
